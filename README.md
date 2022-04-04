@@ -10,7 +10,9 @@ https://aces-backend.matthewbd.my.id/
 
 #### Get All Posts
 
-`http GET /api/posts `
+```http
+  GET /api/posts
+```
 
 #### Get All post by search
 
