@@ -1,4 +1,3 @@
-
 # ACES Backend
 
 Build with laravel 9 + MySQL Database
@@ -6,7 +5,6 @@ Build with laravel 9 + MySQL Database
 ## Demo
 
 https://aces-backend.matthewbd.my.id/
-
 
 ## API Documentation
 
@@ -93,6 +91,7 @@ https://aces-backend.matthewbd.my.id/
 ```http
   GET /api/frontliners?generation={generation.slug}
 ```
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -102,6 +101,7 @@ To run this project, you will need to add the following environment variables to
 `APP_URL`
 
 `ASSET_URL`
+
 ## Run Locally
 
 Make sure have PHP >= 8.1 (Minimum for laravel 9)
@@ -109,7 +109,7 @@ Make sure have PHP >= 8.1 (Minimum for laravel 9)
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/MatthewBrandon21/aces-backend
 ```
 
 Go to the project directory
@@ -147,7 +147,6 @@ Start the server (or you can use valet)
 ```bash
   php artisan serve
 ```
-
 
 ## Support
 
