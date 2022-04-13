@@ -32,7 +32,7 @@ https://aces-backend.matthewbd.my.id/
   GET /api/categories
 ```
 
-#### Get Post
+#### Get Post (detailed)
 
 ```http
   GET /api/posts/{slug}
@@ -50,28 +50,40 @@ https://aces-backend.matthewbd.my.id/
   GET /api/openprojects?search={openproject.title or openproject.body}
 ```
 
+#### Get ACES Open Project (detailed)
+
+```http
+  GET /api/openprojects/{slug}
+```
+
 #### Get All ACES Labs Repository
 
 ```http
-  GET /api/repositorylabs
+  GET /api/labs
 ```
 
 #### Get All ACES Labs Repository by search
 
 ```http
-  GET /api/repositorylabs?search={repository.title or repository.body}
+  GET /api/labs?search={repository.title or repository.body}
 ```
 
 #### Get All ACES Labs Repository by labs categories
 
 ```http
-  GET /api/repositorylabs?labscategory={labscategory.slug}
+  GET /api/labs?labscategory={labscategory.slug}
+```
+
+#### Get ACES Labs Repository (detailed)
+
+```http
+  GET /api/labs/{slug}
 ```
 
 #### Get All ACES Labs categories
 
 ```http
-  GET /api/labscategories
+  GET /api/labs-categories
 ```
 
 #### Get All ACES Generations
