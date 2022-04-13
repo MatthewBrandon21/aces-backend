@@ -32,6 +32,12 @@ https://aces-backend.matthewbd.my.id/
   GET /api/categories
 ```
 
+#### Get Posts
+
+```http
+  GET /api/posts/{slug}
+```
+
 #### Get All ACES Open Projects
 
 ```http
