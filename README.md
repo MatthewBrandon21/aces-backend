@@ -32,7 +32,7 @@ https://aces-backend.matthewbd.my.id/
   GET /api/categories
 ```
 
-#### Get Posts
+#### Get Post
 
 ```http
   GET /api/posts/{slug}
