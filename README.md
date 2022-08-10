@@ -11,103 +11,103 @@ https://aces.umn.ac.id/backend
 
 #### Get All Posts
 
-```http
+```
   GET /api/posts
 ```
 
 #### Get All post by search
 
-```http
+```
   GET /api/posts?search={post.title or post.body}
 ```
 
 #### Get All post by category
 
-```http
+```
   GET /api/posts?category={category.slug}
 ```
 
 #### Get All post categories
 
-```http
+```
   GET /api/categories
 ```
 
 #### Get Post (detailed)
 
-```http
+```
   GET /api/posts/{slug}
 ```
 
 #### Get All ACES Open Projects
 
-```http
+```
   GET /api/openprojects
 ```
 
 #### Get All ACES Open Projects by search
 
-```http
+```
   GET /api/openprojects?search={openproject.title or openproject.body}
 ```
 
 #### Get ACES Open Project (detailed)
 
-```http
+```
   GET /api/openprojects/{slug}
 ```
 
 #### Get All ACES Labs Repository
 
-```http
+```
   GET /api/labs
 ```
 
 #### Get All ACES Labs Repository by search
 
-```http
+```
   GET /api/labs?search={repository.title or repository.body}
 ```
 
 #### Get All ACES Labs Repository by labs categories
 
-```http
+```
   GET /api/labs?labscategory={labscategory.slug}
 ```
 
 #### Get ACES Labs Repository (detailed)
 
-```http
+```
   GET /api/labs/{slug}
 ```
 
 #### Get All ACES Labs categories
 
-```http
+```
   GET /api/labs-categories
 ```
 
 #### Get All ACES Generations
 
-```http
+```
   GET /api/generations
 ```
 
 #### Get All ACES Frontliners member
 
-```http
+```
   GET /api/frontliners
 ```
 
 #### Get All ACES Frontliners member by search
 
-```http
+```
   GET /api/frontliners?search={frontliner.name}
 ```
 
 #### Get All ACES Frontliners member by generations
 
-```http
+```
   GET /api/frontliners?generation={generation.slug}
 ```
 
