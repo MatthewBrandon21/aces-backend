@@ -14,11 +14,11 @@
     @endif
     <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div></a>
     <div class="dropdown-menu dropdown-menu-right">
-        <a href="/dashboard/profile" class="dropdown-item has-icon">
+        <a href="{{  url('') }}/dashboard/profile" class="dropdown-item has-icon">
             <i class="far fa-user"></i> Profile
         </a>
         <div class="dropdown-divider"></div>
-        <form action="/logout" method="POST">
+        <form action="{{  url('') }}/logout" method="POST">
             @csrf
             <button class="dropdown-item has-icon text-danger" onclick="return confirm('Are you sure?')">Logout</button>
         </form>

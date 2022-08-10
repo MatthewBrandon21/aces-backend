@@ -22,7 +22,13 @@ class ApiPostController extends Controller
         if(request('author')){
             $author = User::firstWhere('username', request('author'));
         }
-        return Post::latest()->filter(request(['search', 'category', 'author']))->get();
+        $posts = Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString();
+        foreach ($posts as $post){
+            if($post->image != null){
+                $post->image = asset('storage/' . $post->image);
+            }
+        }
+        return $posts;
     }
 
     /**
@@ -44,7 +50,7 @@ class ApiPostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return $post;
     }
 
     /**

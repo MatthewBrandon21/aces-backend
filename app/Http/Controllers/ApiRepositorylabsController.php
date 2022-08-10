@@ -22,7 +22,13 @@ class ApiRepositorylabsController extends Controller
         if(request('author')){
             $author = User::firstWhere('username', request('author'));
         }
-        return Repositorylabs::latest()->filter(request(['search', 'labscategory', 'author']))->get();
+        $repositories = Repositorylabs::latest()->filter(request(['search', 'labscategory', 'author']))->paginate(10)->withQueryString();
+        foreach ($repositories as $repository){
+            if($repository->image != null){
+                $repository->image = asset('storage/' . $repository->image);
+            }
+        }
+        return $repositories;
     }
 
     /**
@@ -44,7 +50,7 @@ class ApiRepositorylabsController extends Controller
      */
     public function show(Repositorylabs $repositorylabs)
     {
-        //
+        return $repositorylabs;
     }
 
     /**

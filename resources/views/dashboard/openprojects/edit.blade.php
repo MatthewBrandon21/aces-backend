@@ -10,12 +10,12 @@
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="/dashboard/openproject" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="{{  url('') }}/dashboard/openproject" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Edit Project</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="/dashboard/openproject">Projects</a></div>
+        <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="{{  url('') }}/dashboard/openproject">Projects</a></div>
         <div class="breadcrumb-item">Edit Project</div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-                <form method="POST" action="/dashboard/openproject/{{ $project->slug }}" enctype="multipart/form-data">
+                <form method="POST" action="{{  url('') }}/dashboard/openproject/{{ $project->slug }}" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <div class="form-group row mb-4">
@@ -98,7 +98,7 @@
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
     title.addEventListener('change', function(){
-        fetch('/dashboard/openproject/checkSlug?title=' + title.value)
+        fetch('<?php echo url('')?>/dashboard/openproject/checkSlug?title=' + title.value)
           .then(response => response.json())
           .then(data => slug.value = data.slug)
     });

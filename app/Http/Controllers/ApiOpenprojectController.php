@@ -18,7 +18,13 @@ class ApiOpenprojectController extends Controller
         if(request('author')){
             $author = User::firstWhere('username', request('author'));
         }
-        return Openproject::latest()->filter(request(['search', 'author']))->get();
+        $projects = Openproject::latest()->filter(request(['search', 'author']))->paginate(10)->withQueryString();
+        foreach ($projects as $project){
+            if($project->image != null){
+                $project->image = asset('storage/' . $project->image);
+            }
+        }
+        return $projects;
     }
 
     /**
@@ -40,7 +46,7 @@ class ApiOpenprojectController extends Controller
      */
     public function show(Openproject $openproject)
     {
-        //
+        return $openproject;
     }
 
     /**

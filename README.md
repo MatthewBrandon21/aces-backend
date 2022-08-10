@@ -1,171 +1,64 @@
-# ACES Backend
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-Build with laravel 9 + MySQL Database
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-## Demo
+## About Laravel
 
-https://aces-backend.matthewbd.my.id/
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## API Documentation
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-#### Get All Posts
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-```http
-  GET /api/posts
-```
+## Learning Laravel
 
-#### Get All post by search
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-```http
-  GET /api/posts?search={post.title or post.body}
-```
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-#### Get All post by category
+## Laravel Sponsors
 
-```http
-  GET /api/posts?category={category.slug}
-```
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-#### Get All post categories
+### Premium Partners
 
-```http
-  GET /api/categories
-```
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
-#### Get Post (detailed)
+## Contributing
 
-```http
-  GET /api/posts/{slug}
-```
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-#### Get All ACES Open Projects
+## Code of Conduct
 
-```http
-  GET /api/openprojects
-```
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-#### Get All ACES Open Projects by search
+## Security Vulnerabilities
 
-```http
-  GET /api/openprojects?search={openproject.title or openproject.body}
-```
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-#### Get ACES Open Project (detailed)
+## License
 
-```http
-  GET /api/openprojects/{slug}
-```
-
-#### Get All ACES Labs Repository
-
-```http
-  GET /api/labs
-```
-
-#### Get All ACES Labs Repository by search
-
-```http
-  GET /api/labs?search={repository.title or repository.body}
-```
-
-#### Get All ACES Labs Repository by labs categories
-
-```http
-  GET /api/labs?labscategory={labscategory.slug}
-```
-
-#### Get ACES Labs Repository (detailed)
-
-```http
-  GET /api/labs/{slug}
-```
-
-#### Get All ACES Labs categories
-
-```http
-  GET /api/labs-categories
-```
-
-#### Get All ACES Generations
-
-```http
-  GET /api/generations
-```
-
-#### Get All ACES Frontliners member
-
-```http
-  GET /api/frontliners
-```
-
-#### Get All ACES Frontliners member by search
-
-```http
-  GET /api/frontliners?search={frontliner.name}
-```
-
-#### Get All ACES Frontliners member by generations
-
-```http
-  GET /api/frontliners?generation={generation.slug}
-```
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`APP_ENV`
-
-`APP_URL`
-
-`ASSET_URL`
-
-## Run Locally
-
-Make sure have PHP >= 8.1 (Minimum for laravel 9)
-
-Clone the project
-
-```bash
-  git clone https://github.com/MatthewBrandon21/aces-backend
-```
-
-Go to the project directory
-
-```bash
-  cd aces-backend
-```
-
-Install dependencies
-
-```bash
-  composer update
-  composer install
-```
-
-Configure database setting in .env
-
-```bash
-  DB_CONNECTION=mysql
-  DB_HOST=127.0.0.1
-  DB_PORT=3306
-  DB_DATABASE=acesdatabase
-  DB_USERNAME=root
-  DB_PASSWORD=
-```
-
-Seed database
-
-```bash
-  php artisan migrate:fresh --seed
-```
-
-Start the server (or you can use valet)
-
-```bash
-  php artisan serve
-```
-
-## Support
-
-For support, email matthew.brandon@student.umn.ac.id
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

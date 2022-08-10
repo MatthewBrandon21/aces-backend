@@ -56,7 +56,7 @@
             </div>
             <div class="col-12 col-md-12 col-lg-7">
             <div class="card">
-                <form action="/dashboard/profile/{{ $user->username }}" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
+                <form action="{{  url('') }}/dashboard/profile/{{ $user->username }}" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <div class="card-header">
@@ -94,7 +94,7 @@
         <div class="row mt-sm-4 d-flex justify-content-center">
             <div class="col-12 col-md-12 col-lg-7">
             <div class="card">
-                <form action="/dashboard/profile/changePassword/{{ $user->username }}" method="POST" class="needs-validation" novalidate="">
+                <form action="{{  url('') }}/dashboard/profile/changePassword/{{ $user->username }}" method="POST" class="needs-validation" novalidate="">
                     @csrf
                     <div class="card-header">
                         <h4>Change Password</h4>

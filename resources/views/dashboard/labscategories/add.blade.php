@@ -10,12 +10,12 @@
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="/dashboard/labs-categories" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="{{  url('') }}/dashboard/labs-categories" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Create New Labs Category</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="/dashboard/labs-categories">Labs Categories</a></div>
+        <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="{{  url('') }}/dashboard/labs-categories">Labs Categories</a></div>
         <div class="breadcrumb-item">Create New category</div>
       </div>
     </div>
@@ -32,7 +32,7 @@
               <h4>Make new category</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/dashboard/labs-categories">
+                <form method="POST" action="{{  url('') }}/dashboard/labs-categories">
                     @csrf
                     <div class="form-group row mb-4">
                         <label for="name" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name</label>
@@ -71,7 +71,7 @@
     const name = document.querySelector('#name');
     const slug = document.querySelector('#slug');
     name.addEventListener('change', function(){
-        fetch('/dashboard/labs-categories/checkSlug?name=' + name.value)
+        fetch('<?php echo url('')?>/dashboard/labs-categories/checkSlug?name=' + name.value)
           .then(response => response.json())
           .then(data => slug.value = data.slug)
     });

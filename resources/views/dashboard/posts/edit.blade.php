@@ -10,12 +10,12 @@
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="/dashboard/posts" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="{{  url('') }}/dashboard/posts" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Edit Post</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="/dashboard/posts">Posts</a></div>
+        <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="{{  url('') }}/dashboard/posts">Posts</a></div>
         <div class="breadcrumb-item">Edit Post</div>
       </div>
     </div>
@@ -29,7 +29,7 @@
               <h4>Write Your Post</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/dashboard/posts/{{ $post->slug }}" enctype="multipart/form-data">
+                <form method="POST" action="{{  url('') }}/dashboard/posts/{{ $post->slug }}" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <div class="form-group row mb-4">
@@ -115,7 +115,7 @@
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
     title.addEventListener('change', function(){
-        fetch('/dashboard/posts/checkSlug?title=' + title.value)
+        fetch('<?php echo url('')?>/dashboard/posts/checkSlug?title=' + title.value)
           .then(response => response.json())
           .then(data => slug.value = data.slug)
     });

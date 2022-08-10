@@ -11,10 +11,10 @@
         <div class="section-header">
         <h1>ACES Generation</h1>
         <div class="section-header-button">
-            <a href="/dashboard/generations/create" class="btn btn-primary">Add New</a>
+            <a href="{{  url('') }}/dashboard/generations/create" class="btn btn-primary">Add New</a>
           </div>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+            <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
             <div class="breadcrumb-item">ACES Generation</div>
         </div>
         </div>
@@ -65,12 +65,12 @@
                                         @foreach ($generations as $generation)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration	 }}</td>
-                                                <td><a href="/dashboard/generations/{{ $generation->slug }}">{{ $generation->name }}</a></td>
+                                                <td><a href="{{  url('') }}/dashboard/generations/{{ $generation->slug }}">{{ $generation->name }}</a></td>
                                                 <td>{{ $generation->slug }}</td>
                                                 <td style="">
-                                                    <a href="/dashboard/generations/{{ $generation->slug }}" class="btn btn-primary">Details</a>
-                                                    <a href="/dashboard/generations/{{ $generation->slug }}/edit" class="btn btn-primary">Edit</a>
-                                                    <form action="/dashboard/generations/{{ $generation->slug }}" method="POST" class="d-inline">
+                                                    <a href="{{  url('') }}/dashboard/generations/{{ $generation->slug }}" class="btn btn-primary">Details</a>
+                                                    <a href="{{  url('') }}/dashboard/generations/{{ $generation->slug }}/edit" class="btn btn-primary">Edit</a>
+                                                    <form action="{{  url('') }}/dashboard/generations/{{ $generation->slug }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
                                                         <button class="btn btn-danger" onclick="return confirm('This action cannot be undone! Are you sure?')">Delete</button>

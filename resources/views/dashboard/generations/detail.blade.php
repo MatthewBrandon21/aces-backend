@@ -11,15 +11,15 @@
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="/dashboard/generations" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="{{  url('') }}/dashboard/generations" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Generation Details</h1>
       <div class="section-header-button">
-        <a href="/dashboard/generations/{{ $generation->slug }}/edit" class="btn btn-primary">Edit</a>
+        <a href="{{  url('') }}/dashboard/generations/{{ $generation->slug }}/edit" class="btn btn-primary">Edit</a>
       </div>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-        <div class="breadcrumb-item active"><a href="/dashboard/generations">Generations</a></div>
+        <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
+        <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard/generations">Generations</a></div>
         <div class="breadcrumb-item">Details</div>
       </div>
     </div>
@@ -42,6 +42,7 @@
                 Visi : 
                 <br>
                 {!! $generation->visi !!}
+                <br>
                 Misi :
                 <br>
                 {!! $generation->misi !!}
@@ -63,7 +64,7 @@
                 <div class="card-header">
                   <h4>Frontliner Members</h4>
                   <div class="card-header-action">
-                    <a href="/dashboard/frontliners/create" class="btn btn-danger btn-icon icon-right">Add <i class="fas fa-chevron-right"></i></a>
+                    <a href="{{  url('') }}/dashboard/frontliners/create" class="btn btn-danger btn-icon icon-right">Add <i class="fas fa-chevron-right"></i></a>
                   </div>
                 </div>
                 <div class="card-body">
@@ -81,7 +82,7 @@
                                     <div class="user-name">{{ $frontliner->name }}</div>
                                     <div class="text-job text-muted">{{ $frontliner->jobdesk }}</div>
                                     <div class="user-cta">
-                                    <a class="btn btn-primary" href="/dashboard/frontliners/{{ $frontliner->slug }}">Details</a>
+                                    <a class="btn btn-primary" href="{{  url('') }}/dashboard/frontliners/{{ $frontliner->slug }}">Details</a>
                                     </div>
                                 </div>  
                                 </div>

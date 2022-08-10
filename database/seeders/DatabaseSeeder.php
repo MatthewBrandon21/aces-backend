@@ -12,6 +12,7 @@ use App\Models\Labscategory;
 use App\Models\Openproject;
 use App\Models\Post;
 use App\Models\Repositorylabs;
+use App\Models\Websiteconfiguration;
 
 class DatabaseSeeder extends Seeder
 {
@@ -74,5 +75,16 @@ class DatabaseSeeder extends Seeder
         Repositorylabs::factory(6)->create();
 
         Frontliner::factory(6)->create();
+
+        Websiteconfiguration::create([
+            'instagram' => 'acesumn',
+            'twitter' => 'acesumn',
+            'facebook' => 'himasikom',
+            'email' => 'aces@umn.ac.id',
+            'header_hero' => 'ASSOCIATION OF COMPUTER ENGINEERING STUDENTS',
+            'announcement_title' => 'Perprod Teknik Komputer 2022: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, voluptas.',
+            'announcement_link' => 'https://aces.umn.ac.id/go/instagram',
+            'generation_slug' => 'aces-generation-12'
+        ]);
     }
 }

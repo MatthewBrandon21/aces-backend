@@ -9,10 +9,10 @@
   <div class="section-header">
     <h1>ACES Blog</h1>
     <div class="section-header-button">
-      <a href="/dashboard/posts/create" class="btn btn-primary">Add New</a>
+      <a href="{{  url('') }}/dashboard/posts/create" class="btn btn-primary">Add New</a>
     </div>
     <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+      <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
       <div class="breadcrumb-item">Posts</div>
     </div>
   </div>
@@ -33,7 +33,7 @@
     </p>
     <div class="row mb-3">
       <div class="col-md-6">
-          <form action="/dashboard/posts">
+          <form action="{{  url('') }}/dashboard/posts">
               @if (request('category'))
                   <input type="hidden" name="category" value="{{ request('category') }}">
               @endif
@@ -66,17 +66,17 @@
                 @endif
               </div>
               <div class="article-details">
-                <div class="article-category"><a href="/dashboard/posts?category={{ $post->category->slug }}">{{ $post->category->name }}</a> <div class="bullet"></div> <a>{{ $post->created_at->diffForHumans() }}</a></div>
+                <div class="article-category"><a href="{{  url('') }}/dashboard/posts?category={{ $post->category->slug }}">{{ $post->category->name }}</a> <div class="bullet"></div> <a>{{ $post->created_at->diffForHumans() }}</a></div>
                 <div class="article-title">
-                  <h2><a href="/dashboard/posts/{{ $post->slug }}">{{ $post->title }}</a></h2>
+                  <h2><a href="{{  url('') }}/dashboard/posts/{{ $post->slug }}">{{ $post->title }}</a></h2>
                 </div>
                 <p>{{ $post->excerpt }}</p>
                 <div class="row d-flex justify-content-center">
                   <div class="p-2">
-                    <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-primary">Edit</a>
+                    <a href="{{  url('') }}/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-primary">Edit</a>
                   </div>
                   <div class="p-2">
-                    <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                    <form action="{{  url('') }}/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger" onclick="return confirm('This action cannot be undone! Are you sure?')">Delete</button>
@@ -84,7 +84,7 @@
                   </div>
                   @if ($post->published)
                     <div class="p-2">
-                      <form action="/dashboard/posts/publishConf/{{ $post->slug }}" method="POST" class="d-inline">
+                      <form action="{{  url('') }}/dashboard/posts/publishConf/{{ $post->slug }}" method="POST" class="d-inline">
                         @csrf
                         <input type="hidden" name="published" id="published" value="0">
                         <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Unpublish</button>
@@ -92,7 +92,7 @@
                     </div>
                   @else
                   <div class="p-2">
-                    <form action="/dashboard/posts/publishConf/{{ $post->slug }}" method="POST" class="d-inline">
+                    <form action="{{  url('') }}/dashboard/posts/publishConf/{{ $post->slug }}" method="POST" class="d-inline">
                       @csrf
                       <input type="hidden" name="published" id="published" value="1">
                       <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Publish</button>
@@ -104,7 +104,7 @@
                   <img alt="image" src="{{ asset('') }}assets/img/avatar/avatar-1.png">
                   <div class="article-user-details">
                     <div class="user-detail-name">
-                      <a href="/dashboard/posts?author={{ $post->author->username }}">{{ $post->author->name }}</a>
+                      <a href="{{  url('') }}/dashboard/posts?author={{ $post->author->username }}">{{ $post->author->name }}</a>
                     </div>
                     <div class="text-job">Web Developer</div>
                   </div>

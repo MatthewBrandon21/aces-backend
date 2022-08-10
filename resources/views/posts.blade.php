@@ -4,7 +4,7 @@
     <h1 class="mb-4">{{ $title }}</h1>  
     <div class="row mb-3">
         <div class="col-md-6">
-            <form action="/blog">
+            <form action="{{  url('') }}/blog">
                 @if (request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <h2 class="mb-5"><a href="/categories" class="btn btn-primary text-decoration-none">Categories</a></h2>  
+    <h2 class="mb-5"><a href="{{  url('') }}/categories" class="btn btn-primary text-decoration-none">Categories</a></h2>  
 
     @if ($posts->count())
         <div class="container">
@@ -34,11 +34,11 @@
                             @endif
                             <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
-                            <p class="card-text"><small class="text-muted">By. <a href="/blog?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> 
-                                in <a href="/blog?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>. 
+                            <p class="card-text"><small class="text-muted">By. <a href="{{  url('') }}/blog?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> 
+                                in <a href="{{  url('') }}/blog?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>. 
                                 Last updated {{ $post->created_at->diffForHumans() }}</small></p>
                             <p class="card-text">{{ $post->excerpt }}</p>
-                            <a href="/blog/{{ $post->slug }}" class="btn btn-primary">Read More</a>
+                            <a href="{{  url('') }}/blog/{{ $post->slug }}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>

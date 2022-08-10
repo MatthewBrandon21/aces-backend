@@ -17,8 +17,14 @@ class ApiFrontlinerController extends Controller
     {
         if(request('generation')){
             $generation = Generation::firstWhere('slug', request('generation'));
+        } 
+        $frontliners = Frontliner::latest()->filter(request(['search', 'generation']))->get();
+        foreach ($frontliners as $frontliner){
+            if($frontliner->image != null){
+                $frontliner->image = asset('storage/' . $frontliner->image);
+            }
         }
-        return Frontliner::latest()->filter(request(['search', 'generation']))->get();
+        return $frontliners;
     }
 
     /**

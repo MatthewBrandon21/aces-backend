@@ -11,10 +11,10 @@
         <div class="section-header">
         <h1>Blog Categories</h1>
         <div class="section-header-button">
-            <a href="/dashboard/categories/create" class="btn btn-primary">Add New</a>
+            <a href="{{  url('') }}/dashboard/categories/create" class="btn btn-primary">Add New</a>
           </div>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+            <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
             <div class="breadcrumb-item">Blog Categories</div>
         </div>
         </div>
@@ -65,11 +65,11 @@
                                         @foreach ($categories as $category)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration	 }}</td>
-                                                <td><a href="/dashboard/posts?category={{ $category->slug }}">{{ $category->name }}</a></td>
+                                                <td><a href="{{  url('') }}/dashboard/posts?category={{ $category->slug }}">{{ $category->name }}</a></td>
                                                 <td>{{ $category->slug }}</td>
                                                 <td style="">
-                                                    <a href="/dashboard/categories/{{ $category->slug }}/edit" class="btn btn-primary">Edit</a>
-                                                    <form action="/dashboard/categories/{{ $category->slug }}" method="POST" class="d-inline">
+                                                    <a href="{{  url('') }}/dashboard/categories/{{ $category->slug }}/edit" class="btn btn-primary">Edit</a>
+                                                    <form action="{{  url('') }}/dashboard/categories/{{ $category->slug }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
                                                         <button class="btn btn-danger" onclick="return confirm('This action cannot be undone! Are you sure?')">Delete</button>

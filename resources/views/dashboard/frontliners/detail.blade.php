@@ -10,12 +10,12 @@
   <section class="section">
     <div class="section-header">
         <div class="section-header-back">
-            <a href="/dashboard/frontliners" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+            <a href="{{  url('') }}/dashboard/frontliners" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
         </div>
       <h1>Frontliner Member Details</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="/dashboard/frontliners">Frontliners</a></div>
+        <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="{{  url('') }}/dashboard/frontliners">Frontliners</a></div>
         <div class="breadcrumb-item">Detail</div>
       </div>
     </div>
@@ -31,7 +31,7 @@
                             <img alt="image" src="{{ asset('') }}assets/img/avatar/avatar-1.png" class="rounded-circle author-box-picture">
                           @endif
                         <div class="clearfix"></div>
-                        <a href="/dashboard/frontliners/{{ $frontliner->slug }}/edit" class="btn btn-primary mt-3">Edit</a>
+                        <a href="{{  url('') }}/dashboard/frontliners/{{ $frontliner->slug }}/edit" class="btn btn-primary mt-3">Edit</a>
                       </div>
                       <div class="author-box-details">
                         <div class="author-box-name">

@@ -11,7 +11,7 @@
         <div class="section-header">
         <h1>Users Management</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+            <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
             <div class="breadcrumb-item">Users Management</div>
         </div>
         </div>
@@ -30,7 +30,7 @@
         <p class="section-lead">Components relating to users, lists of users and so on.</p>
         <div class="row mb-3">
             <div class="col-md-6">
-                <form action="/dashboard/users">
+                <form action="{{  url('') }}/dashboard/users">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search something.." name="search" value="{{ request('search') }}">
                         <button class="btn btn-primary ml-4" type="submit">Search</button>
@@ -67,13 +67,13 @@
                                         <div class="media-description text-muted">{{ $user->email }}</div>
                                         <div class="media-links">
                                             @if ($user->isadmin)
-                                                <form action="/dashboard/users/changeRole/{{ $user->username }}" method="POST" class="d-inline">
+                                                <form action="{{  url('') }}/dashboard/users/changeRole/{{ $user->username }}" method="POST" class="d-inline">
                                                     @csrf
                                                     <input type="hidden" name="isadmin" id="isadmin" value="0">
                                                     <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Make member</button>
                                                 </form>
                                             @else
-                                                <form action="/dashboard/users/changeRole/{{ $user->username }}" method="POST" class="d-inline">
+                                                <form action="{{  url('') }}/dashboard/users/changeRole/{{ $user->username }}" method="POST" class="d-inline">
                                                     @csrf
                                                     <input type="hidden" name="isadmin" id="isadmin" value="1">
                                                     <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Make admin</button>
@@ -81,20 +81,20 @@
                                             @endif
                                             <div class="bullet"></div>
                                             @if ($user->active)
-                                                <form action="/dashboard/users/banUser/{{ $user->username }}" method="POST" class="d-inline">
+                                                <form action="{{  url('') }}/dashboard/users/banUser/{{ $user->username }}" method="POST" class="d-inline">
                                                     @csrf
                                                     <input type="hidden" name="active" id="active" value="0">
                                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Banned</button>
                                                 </form>
                                             @else
-                                                <form action="/dashboard/users/banUser/{{ $user->username }}" method="POST" class="d-inline">
+                                                <form action="{{  url('') }}/dashboard/users/banUser/{{ $user->username }}" method="POST" class="d-inline">
                                                     @csrf
                                                     <input type="hidden" name="active" id="active" value="1">
                                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Unbanned</button>
                                                 </form>
                                             @endif
                                             <div class="bullet"></div>
-                                            <form action="/dashboard/users/{{ $user->username }}" method="POST" class="d-inline">
+                                            <form action="{{  url('') }}/dashboard/users/{{ $user->username }}" method="POST" class="d-inline">
                                                 @method('delete')
                                                 @csrf
                                                 <button class="btn btn-danger" onclick="return confirm('This action cannot be undone! Are you sure?')">Delete</button>

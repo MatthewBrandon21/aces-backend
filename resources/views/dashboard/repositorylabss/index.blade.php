@@ -9,10 +9,10 @@
   <div class="section-header">
     <h1>ACES Labs</h1>
     <div class="section-header-button">
-      <a href="/dashboard/labs/create" class="btn btn-primary">Add New</a>
+      <a href="{{  url('') }}/dashboard/labs/create" class="btn btn-primary">Add New</a>
     </div>
     <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+      <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
       <div class="breadcrumb-item">Labs</div>
     </div>
   </div>
@@ -33,7 +33,7 @@
     </p>
     <div class="row mb-3">
       <div class="col-md-6">
-          <form action="/dashboard/labs">
+          <form action="{{  url('') }}/dashboard/labs">
               @if (request('labscategory'))
                   <input type="hidden" name="labscategory" value="{{ request('labscategory') }}">
               @endif
@@ -63,20 +63,24 @@
                   <div class="article-badge">
                     <div class="article-badge-item bg-primary">Published</div>
                   </div>
+                @else
+                  <div class="article-badge">
+                    <div class="article-badge-item bg-warning">Not Published</div>
+                  </div>
                 @endif
               </div>
               <div class="article-details">
-                <div class="article-category"><a href="/dashboard/labs?labscategory={{ $repository->labscategory->slug }}">{{ $repository->labscategory->name }}</a> <div class="bullet"></div> <a>{{ $repository->created_at->diffForHumans() }}</a></div>
+                <div class="article-category"><a href="{{  url('') }}/dashboard/labs?labscategory={{ $repository->labscategory->slug }}">{{ $repository->labscategory->name }}</a> <div class="bullet"></div> <a>{{ $repository->created_at->diffForHumans() }}</a></div>
                 <div class="article-title">
-                  <h2><a href="/dashboard/labs/{{ $repository->slug }}">{{ $repository->title }}</a></h2>
+                  <h2><a href="{{  url('') }}/dashboard/labs/{{ $repository->slug }}">{{ $repository->title }}</a></h2>
                 </div>
                 <p>{{ $repository->excerpt }}</p>
                 <div class="row d-flex justify-content-center">
                   <div class="p-2">
-                    <a href="/dashboard/labs/{{ $repository->slug }}/edit" class="btn btn-primary">Edit</a>
+                    <a href="{{  url('') }}/dashboard/labs/{{ $repository->slug }}/edit" class="btn btn-primary">Edit</a>
                   </div>
                   <div class="p-2">
-                    <form action="/dashboard/labs/{{ $repository->slug }}" method="POST" class="d-inline">
+                    <form action="{{  url('') }}/dashboard/labs/{{ $repository->slug }}" method="POST" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger" onclick="return confirm('This action cannot be undone! Are you sure?')">Delete</button>
@@ -84,7 +88,7 @@
                   </div>
                   @if ($repository->published)
                     <div class="p-2">
-                      <form action="/dashboard/labs/publishConf/{{ $repository->slug }}" method="POST" class="d-inline">
+                      <form action="{{  url('') }}/dashboard/labs/publishConf/{{ $repository->slug }}" method="POST" class="d-inline">
                         @csrf
                         <input type="hidden" name="published" id="published" value="0">
                         <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Unpublish</button>
@@ -92,7 +96,7 @@
                     </div>
                   @else
                   <div class="p-2">
-                    <form action="/dashboard/labs/publishConf/{{ $repository->slug }}" method="POST" class="d-inline">
+                    <form action="{{  url('') }}/dashboard/labs/publishConf/{{ $repository->slug }}" method="POST" class="d-inline">
                       @csrf
                       <input type="hidden" name="published" id="published" value="1">
                       <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Publish</button>
@@ -104,7 +108,7 @@
                   <img alt="image" src="{{ asset('') }}assets/img/avatar/avatar-1.png">
                   <div class="article-user-details">
                     <div class="user-detail-name">
-                      <a href="/dashboard/labs?author={{ $repository->author->username }}">{{ $repository->author->name }}</a>
+                      <a href="{{  url('') }}/dashboard/labs?author={{ $repository->author->username }}">{{ $repository->author->name }}</a>
                     </div>
                     <div class="text-job">Web Developer</div>
                   </div>

@@ -10,12 +10,12 @@
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="/dashboard/categories" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="{{  url('') }}/dashboard/categories" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Edit Category</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="/dashboard/categories">Categories</a></div>
+        <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="{{  url('') }}/dashboard/categories">Categories</a></div>
         <div class="breadcrumb-item">Edit category</div>
       </div>
     </div>
@@ -32,7 +32,7 @@
               <h4>Edit category</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/dashboard/categories/{{ $category->slug }}">
+                <form method="POST" action="{{  url('') }}/dashboard/categories/{{ $category->slug }}">
                     @method('put')
                     @csrf
                     <div class="form-group row mb-4">
@@ -72,7 +72,7 @@
     const name = document.querySelector('#name');
     const slug = document.querySelector('#slug');
     name.addEventListener('change', function(){
-        fetch('/dashboard/categories/checkSlug?name=' + name.value)
+        fetch('<?php echo url('')?>/dashboard/categories/checkSlug?name=' + name.value)
           .then(response => response.json())
           .then(data => slug.value = data.slug)
     });

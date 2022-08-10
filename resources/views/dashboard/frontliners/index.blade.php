@@ -9,10 +9,10 @@
   <div class="section-header">
     <h1>ACES Frontliners</h1>
     <div class="section-header-button">
-      <a href="/dashboard/frontliners/create" class="btn btn-primary">Add New</a>
+      <a href="{{  url('') }}/dashboard/frontliners/create" class="btn btn-primary">Add New</a>
     </div>
     <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+      <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
       <div class="breadcrumb-item">Frontliners</div>
     </div>
   </div>
@@ -30,7 +30,7 @@
     <h2 class="section-title">Frontliners</h2>
     <div class="row mb-3">
       <div class="col-md-6">
-          <form action="/dashboard/frontliners">
+          <form action="{{  url('') }}/dashboard/frontliners">
               @if (request('generation'))
                   <input type="hidden" name="generation" value="{{ request('generation') }}">
               @endif
@@ -55,16 +55,16 @@
                 </div>
               </div>
               <div class="article-details">
-                <div class="article-category"><a href="/dashboard/frontliners?generation={{ $frontliner->generation->slug }}">{{ $frontliner->generation->name }}</a> <div class="bullet"></div> <a>{{ $frontliner->jobdesk }}</a></div>
+                <div class="article-category"><a href="{{  url('') }}/dashboard/frontliners?generation={{ $frontliner->generation->slug }}">{{ $frontliner->generation->name }}</a> <div class="bullet"></div> <a>{{ $frontliner->jobdesk }}</a></div>
                 <div class="article-title">
-                  <h2><a href="/dashboard/frontliners/{{ $frontliner->slug }}">{{ $frontliner->name }}</a></h2>
+                  <h2><a href="{{  url('') }}/dashboard/frontliners/{{ $frontliner->slug }}">{{ $frontliner->name }}</a></h2>
                 </div>
                 <div class="row d-flex justify-content-center">
                   <div class="p-2">
-                    <a href="/dashboard/frontliners/{{ $frontliner->slug }}/edit" class="btn btn-primary">Edit</a>
+                    <a href="{{  url('') }}/dashboard/frontliners/{{ $frontliner->slug }}/edit" class="btn btn-primary">Edit</a>
                   </div>
                   <div class="p-2">
-                    <form action="/dashboard/frontliners/{{ $frontliner->slug }}" method="POST" class="d-inline">
+                    <form action="{{  url('') }}/dashboard/frontliners/{{ $frontliner->slug }}" method="POST" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger" onclick="return confirm('This action cannot be undone! Are you sure?')">Delete</button>

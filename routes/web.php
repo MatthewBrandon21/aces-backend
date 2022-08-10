@@ -3,16 +3,26 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CelecturerController;
+use App\Http\Controllers\ContactusController;
+use App\Http\Controllers\DashboardAdminImageFolder;
+use App\Http\Controllers\DashboardAdminTicket;
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardFrontlinerController;
 use App\Http\Controllers\DashboardGenerationController;
 use App\Http\Controllers\DashboardLabscategoryController;
+use App\Http\Controllers\DashboardMemberImageFolder;
+use App\Http\Controllers\DashboardMemberRepositoryPost;
 use App\Http\Controllers\DashboardOpenprojectController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardRepositorylabsController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardUserProfileController;
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\WebsiteconfigurationController;
+use App\Http\Controllers\WebsitegalleryController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
@@ -79,6 +89,14 @@ Route::get('/forgot-password', [AuthController::class, 'forgot'])->name('forgot'
 
 Route::get('/reset-password', [AuthController::class, 'reset'])->name('reset')->middleware('guest');
 
+Route::get('/password/forgot',[ResetPasswordController::class,'showForgotForm'])->name('forgot.password.form');
+
+Route::post('/password/forgot',[ResetPasswordController::class,'sendResetLink'])->name('forgot.password.link');
+
+Route::get('/password/reset/{token}',[ResetPasswordController::class,'showResetForm'])->name('reset.password.form');
+
+Route::post('/password/reset',[ResetPasswordController::class,'resetPassword'])->name('reset.password');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::post('/dashboard/posts/publishConf/{post:slug}', [DashboardPostController::class, 'publishConf'])->middleware('isadmin');
@@ -113,6 +131,26 @@ Route::get('/dashboard/labs/checkSlug', [DashboardRepositorylabsController::clas
 
 Route::resource('/dashboard/labs', DashboardRepositorylabsController::class, ['parameters' => ['labs' => 'repositorylabs']])->middleware('isadmin');
 
+Route::get('/dashboard/memberlabs/checkSlug', [DashboardMemberRepositoryPost::class, 'checkSlug'])->middleware('auth');
+
+Route::resource('/dashboard/memberlabs', DashboardMemberRepositoryPost::class, ['parameters' => ['memberlabs' => 'repositorylabs']])->middleware('auth');
+
+Route::get('/dashboard/ticket/checkSlug', [TicketController::class, 'checkSlug'])->middleware('auth');
+
+Route::resource('/dashboard/ticket', TicketController::class, ['parameters' => ['ticket' => 'ticket']])->middleware('auth');
+
+Route::resource('/dashboard/admin-ticket', DashboardAdminTicket::class, ['parameters' => ['admin-ticket' => 'ticket']])->middleware('isadmin');
+
+Route::resource('/dashboard/admin-contactus', ContactusController::class, ['parameters' => ['admin-contactus' => 'contactus']])->middleware('isadmin');
+
+Route::resource('/dashboard/imagefolder', DashboardMemberImageFolder::class, ['parameters' => ['imagefolder' => 'imagefolder']])->middleware('auth');
+
+Route::resource('/dashboard/adminimagefolder', DashboardAdminImageFolder::class, ['parameters' => ['imagefolder' => 'imagefolder']])->middleware('isadmin');
+
+Route::resource('/dashboard/websitegallery', WebsitegalleryController::class, ['parameters' => ['websitegallery' => 'websitegallery']])->middleware('isadmin');
+
+Route::resource('/dashboard/websiteconfiguration', WebsiteconfigurationController::class, ['parameters' => ['websiteconfiguration' => 'websiteconfiguration']])->middleware('isadmin');
+
 Route::get('/dashboard/labs-categories/checkSlug', [DashboardLabscategoryController::class, 'checkSlug'])->middleware('isadmin');
 
 Route::resource('/dashboard/labs-categories', DashboardLabscategoryController::class, ['parameters' => ['labs-categories' => 'labscategory']])->middleware('isadmin');
@@ -124,3 +162,7 @@ Route::resource('/dashboard/generations', DashboardGenerationController::class)-
 Route::get('/dashboard/frontliners/checkSlug', [DashboardFrontlinerController::class, 'checkSlug'])->middleware('isadmin');
 
 Route::resource('/dashboard/frontliners', DashboardFrontlinerController::class)->middleware('isadmin');
+
+Route::get('/dashboard/lecturers/checkSlug', [CelecturerController::class, 'checkSlug'])->middleware('isadmin');
+
+Route::resource('/dashboard/lecturers', CelecturerController::class, ['parameters' => ['lecturers' => 'celecturer']])->middleware('isadmin');

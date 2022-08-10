@@ -9,10 +9,10 @@
   <div class="section-header">
     <h1>ACES Open Project</h1>
     <div class="section-header-button">
-      <a href="/dashboard/openproject/create" class="btn btn-primary">Add New</a>
+      <a href="{{  url('') }}/dashboard/openproject/create" class="btn btn-primary">Add New</a>
     </div>
     <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+      <div class="breadcrumb-item active"><a href="{{  url('') }}/dashboard">Dashboard</a></div>
       <div class="breadcrumb-item">Open Projects</div>
     </div>
   </div>
@@ -30,7 +30,7 @@
     <h2 class="section-title">Projects</h2>
     <div class="row mb-3">
       <div class="col-md-6">
-          <form action="/dashboard/openproject">
+          <form action="{{  url('') }}/dashboard/openproject">
               <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Search something.." name="search" value="{{ request('search') }}">
                   <button class="btn btn-primary ml-4" type="submit">Search</button>
@@ -59,15 +59,15 @@
               <div class="article-details">
                 <div class="article-category"><a>{{ $project->created_at->diffForHumans() }}</a></div>
                 <div class="article-title">
-                  <h2><a href="/dashboard/openproject/{{ $project->slug }}">{{ $project->title }}</a></h2>
+                  <h2><a href="{{  url('') }}/dashboard/openproject/{{ $project->slug }}">{{ $project->title }}</a></h2>
                 </div>
                 <p>{{ $project->excerpt }}</p>
                 <div class="row d-flex justify-content-center">
                   <div class="p-2">
-                    <a href="/dashboard/openproject/{{ $project->slug }}/edit" class="btn btn-primary">Edit</a>
+                    <a href="{{  url('') }}/dashboard/openproject/{{ $project->slug }}/edit" class="btn btn-primary">Edit</a>
                   </div>
                   <div class="p-2">
-                    <form action="/dashboard/openproject/{{ $project->slug }}" method="POST" class="d-inline">
+                    <form action="{{  url('') }}/dashboard/openproject/{{ $project->slug }}" method="POST" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger" onclick="return confirm('This action cannot be undone! Are you sure?')">Delete</button>
@@ -75,7 +75,7 @@
                   </div>
                   @if ($project->published)
                     <div class="p-2">
-                      <form action="/dashboard/openproject/publishConf/{{ $project->slug }}" method="POST" class="d-inline">
+                      <form action="{{  url('') }}/dashboard/openproject/publishConf/{{ $project->slug }}" method="POST" class="d-inline">
                         @csrf
                         <input type="hidden" name="published" id="published" value="0">
                         <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Unpublish</button>
@@ -83,7 +83,7 @@
                     </div>
                   @else
                   <div class="p-2">
-                    <form action="/dashboard/openproject/publishConf/{{ $project->slug }}" method="POST" class="d-inline">
+                    <form action="{{  url('') }}/dashboard/openproject/publishConf/{{ $project->slug }}" method="POST" class="d-inline">
                       @csrf
                       <input type="hidden" name="published" id="published" value="1">
                       <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure?')">Publish</button>
@@ -95,7 +95,7 @@
                   <img alt="image" src="{{ asset('') }}assets/img/avatar/avatar-1.png">
                   <div class="article-user-details">
                     <div class="user-detail-name">
-                      <a href="/dashboard/openproject?author={{ $project->author->username }}">{{ $project->author->name }}</a>
+                      <a href="{{  url('') }}/dashboard/openproject?author={{ $project->author->username }}">{{ $project->author->name }}</a>
                     </div>
                     <div class="text-job">Web Developer</div>
                   </div>
