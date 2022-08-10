@@ -1,9 +1,8 @@
 # ACES Backend
 
 Build with laravel 9 + MySQL Database
-Custom CMS
 
-## Demo
+## Deployment
 
 https://aces.umn.ac.id/backend
 
