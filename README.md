@@ -5,7 +5,7 @@ Build with laravel 9 + MySQL Database
 ## Deployment
 
 https://aces.umn.ac.id/backend
-
+for api -> https://aces.umn.ac.id/backend/api
 ## Used By
 
 This project is used by ACES UMN official website (https://aces.umn.ac.id)
