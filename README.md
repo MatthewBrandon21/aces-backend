@@ -486,8 +486,11 @@ For support, email matthew.brandon@student.umn.ac.id
 ```mermaid
 flowchart LR
 
-A[Hard] -->|Text| B(Round)
-B --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
+    A[Plan] --> B[Code]
+    B --> C[Build]
+    C --> D[Publish]
+    D --> E[Staging Deployment]
+    E --> F[Production Deployment]
+    F --> G[Release & Runtime]
+    G --> H[Plan for new feature and hotfix]
 ```
